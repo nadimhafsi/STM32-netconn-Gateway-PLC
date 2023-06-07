@@ -1,0 +1,484 @@
+10:58:08 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"../GUI files" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/port" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/include" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/tcp" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'tcpecho_thread':
+../Core/Src/main.c:1669:42: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1669 |           BSP_LCD_DisplayStringAtLine(2, "STM32F746G lwip is connected");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1687:33: warning: passing argument 2 of 'netbuf_data' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1687 |                netbuf_data(buf, &data, &len);
+      |                                 ^~~~~
+      |                                 |
+      |                                 unsigned char **
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/api.h:47,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/LwIP/src/include/lwip/netbuf.h:83:43: note: expected 'void **' but argument is of type 'unsigned char **'
+   83 |                                    void **dataptr, u16_t *len);
+      |                                    ~~~~~~~^~~~~~~
+../Core/Src/main.c:1708:59: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+ 1708 |                HAL_UART_Transmit(&huart6,(uint8_t *)test1,strlen(test1),2000);
+      |                                                           ^~~~~~
+../Core/Src/main.c:1708:59: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "usb_host.h"
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:1785:16: warning: implicit declaration of function 'strcat' [-Wimplicit-function-declaration]
+ 1785 |                strcat(url,mes);
+      |                ^~~~~~
+../Core/Src/main.c:1785:16: warning: incompatible implicit declaration of built-in function 'strcat'
+../Core/Src/main.c:1785:16: note: include '<string.h>' or provide a declaration of 'strcat'
+../Core/Src/main.c:1838:65: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1838 |                                  BSP_LCD_DisplayStringAtLine(3, "PLC1:");
+      |                                                                 ^~~~~~~
+      |                                                                 |
+      |                                                                 char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1839:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1839 |                                 BSP_LCD_DisplayStringAtLine(4, ch11);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1840:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1840 |                                 BSP_LCD_DisplayStringAtLine(5, ch12);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1854:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1854 |                                 BSP_LCD_DisplayStringAtLine(3, "Client2:");
+      |                                                                ^~~~~~~~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1855:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1855 |                                 BSP_LCD_DisplayStringAtLine(4, ch14);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1856:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1856 |                                 BSP_LCD_DisplayStringAtLine(5, ch15);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c: In function 'StartTask_GSM1':
+../Core/Src/main.c:1978:3: warning: "/*" within comment [-Wcomment]
+ 1978 |   /* Infinite loop */
+      |    
+arm-none-eabi-gcc -o "project1.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\ASUS\Desktop\netconn\project1\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project1.elf
+ 
+arm-none-eabi-size   project1.elf 
+arm-none-eabi-objdump -h -S  project1.elf  > "project1.list"
+arm-none-eabi-objcopy  -O binary  project1.elf  "project1.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 180596	    576	  69368	 250540	  3d2ac	project1.elf
+Finished building: default.size.stdout
+ 
+Finished building: project1.bin
+ 
+Finished building: project1.list
+ 
+10:59:08 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 180596	    576	  69368	 250540	  3d2ac	project1.elf
+Finished building: default.size.stdout
+ 
+12:25:12 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"../GUI files" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/port" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/include" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/tcp" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'tcpecho_thread':
+../Core/Src/main.c:1669:42: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1669 |           BSP_LCD_DisplayStringAtLine(2, "STM32F746G lwip is connected");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1687:33: warning: passing argument 2 of 'netbuf_data' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1687 |                netbuf_data(buf, &data, &len);
+      |                                 ^~~~~
+      |                                 |
+      |                                 unsigned char **
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/api.h:47,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/LwIP/src/include/lwip/netbuf.h:83:43: note: expected 'void **' but argument is of type 'unsigned char **'
+   83 |                                    void **dataptr, u16_t *len);
+      |                                    ~~~~~~~^~~~~~~
+../Core/Src/main.c:1838:65: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1838 |                                  BSP_LCD_DisplayStringAtLine(3, "PLC1:");
+      |                                                                 ^~~~~~~
+      |                                                                 |
+      |                                                                 char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1839:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1839 |                                 BSP_LCD_DisplayStringAtLine(4, ch11);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1840:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1840 |                                 BSP_LCD_DisplayStringAtLine(5, ch12);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1854:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1854 |                                 BSP_LCD_DisplayStringAtLine(3, "Client2:");
+      |                                                                ^~~~~~~~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1855:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1855 |                                 BSP_LCD_DisplayStringAtLine(4, ch14);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1856:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1856 |                                 BSP_LCD_DisplayStringAtLine(5, ch15);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c: In function 'StartTask_GSM1':
+../Core/Src/main.c:1978:3: warning: "/*" within comment [-Wcomment]
+ 1978 |   /* Infinite loop */
+      |    
+arm-none-eabi-gcc -o "project1.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\ASUS\Desktop\netconn\project1\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project1.elf
+ 
+arm-none-eabi-size   project1.elf 
+arm-none-eabi-objdump -h -S  project1.elf  > "project1.list"
+arm-none-eabi-objcopy  -O binary  project1.elf  "project1.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+Finished building: project1.bin
+ 
+Finished building: project1.list
+ 
+12:25:43 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+12:26:04 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+12:34:36 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+12:42:02 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+12:52:48 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+12:57:40 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+12:59:01 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+13:04:42 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-size   project1.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 178968	    220	  69372	 248560	  3caf0	project1.elf
+Finished building: default.size.stdout
+ 
+13:13:52 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"../GUI files" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/port" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/include" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/tcp" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'tcpecho_thread':
+../Core/Src/main.c:1669:42: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1669 |           BSP_LCD_DisplayStringAtLine(2, "STM32F746G lwip is connected");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1687:33: warning: passing argument 2 of 'netbuf_data' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1687 |                netbuf_data(buf, &data, &len);
+      |                                 ^~~~~
+      |                                 |
+      |                                 unsigned char **
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/api.h:47,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/LwIP/src/include/lwip/netbuf.h:83:43: note: expected 'void **' but argument is of type 'unsigned char **'
+   83 |                                    void **dataptr, u16_t *len);
+      |                                    ~~~~~~~^~~~~~~
+../Core/Src/main.c:1838:65: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1838 |                                  BSP_LCD_DisplayStringAtLine(3, "PLC1:");
+      |                                                                 ^~~~~~~
+      |                                                                 |
+      |                                                                 char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1839:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1839 |                                 BSP_LCD_DisplayStringAtLine(4, ch11);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1840:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1840 |                                 BSP_LCD_DisplayStringAtLine(5, ch12);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1854:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1854 |                                 BSP_LCD_DisplayStringAtLine(3, "PLC2:");
+      |                                                                ^~~~~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1855:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1855 |                                 BSP_LCD_DisplayStringAtLine(4, ch14);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1856:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1856 |                                 BSP_LCD_DisplayStringAtLine(5, ch15);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c: In function 'StartTask_GSM1':
+../Core/Src/main.c:1978:3: warning: "/*" within comment [-Wcomment]
+ 1978 |   /* Infinite loop */
+      |    
+arm-none-eabi-gcc -o "project1.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\ASUS\Desktop\netconn\project1\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project1.elf
+ 
+arm-none-eabi-size   project1.elf 
+arm-none-eabi-objdump -h -S  project1.elf  > "project1.list"
+arm-none-eabi-objcopy  -O binary  project1.elf  "project1.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 178964	    220	  69372	 248556	  3caec	project1.elf
+Finished building: default.size.stdout
+ 
+Finished building: project1.bin
+ 
+Finished building: project1.list
+ 
+13:19:59 **** Incremental Build of configuration Debug for project project1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"../GUI files" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/port" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/include" -I"C:/Users/ASUS/Desktop/netconn/project1/Middlewares/Third_Party/modbus/tcp" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'tcpecho_thread':
+../Core/Src/main.c:1669:42: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1669 |           BSP_LCD_DisplayStringAtLine(2, "STM32F746G lwip is connected");
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1687:33: warning: passing argument 2 of 'netbuf_data' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1687 |                netbuf_data(buf, &data, &len);
+      |                                 ^~~~~
+      |                                 |
+      |                                 unsigned char **
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/api.h:47,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/LwIP/src/include/lwip/netbuf.h:83:43: note: expected 'void **' but argument is of type 'unsigned char **'
+   83 |                                    void **dataptr, u16_t *len);
+      |                                    ~~~~~~~^~~~~~~
+../Core/Src/main.c:1838:65: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1838 |                                  BSP_LCD_DisplayStringAtLine(3, "PLC1:");
+      |                                                                 ^~~~~~~
+      |                                                                 |
+      |                                                                 char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1839:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1839 |                                 BSP_LCD_DisplayStringAtLine(4, ch11);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1840:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1840 |                                 BSP_LCD_DisplayStringAtLine(5, ch12);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1854:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1854 |                                 BSP_LCD_DisplayStringAtLine(3, "PLC2:");
+      |                                                                ^~~~~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1855:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1855 |                                 BSP_LCD_DisplayStringAtLine(4, ch14);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c:1856:64: warning: pointer targets in passing argument 2 of 'BSP_LCD_DisplayStringAtLine' differ in signedness [-Wpointer-sign]
+ 1856 |                                 BSP_LCD_DisplayStringAtLine(5, ch15);
+      |                                                                ^~~~
+      |                                                                |
+      |                                                                char *
+In file included from ../Core/Inc/main.h:39,
+                 from ../Core/Src/main.c:20:
+../GUI files/stm32746g_discovery_lcd.h:219:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  219 | void     BSP_LCD_DisplayStringAtLine(uint16_t Line, uint8_t *ptr);
+      |                                                     ~~~~~~~~~^~~
+../Core/Src/main.c: In function 'StartTask_GSM1':
+../Core/Src/main.c:1980:3: warning: "/*" within comment [-Wcomment]
+ 1980 |   /* Infinite loop */
+      |    
+arm-none-eabi-gcc -o "project1.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\ASUS\Desktop\netconn\project1\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project1.elf
+ 
+arm-none-eabi-size   project1.elf 
+arm-none-eabi-objdump -h -S  project1.elf  > "project1.list"
+arm-none-eabi-objcopy  -O binary  project1.elf  "project1.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 178980	    220	  69372	 248572	  3cafc	project1.elf
+Finished building: default.size.stdout
+ 
+Finished building: project1.bin
+ 
+Finished building: project1.list
+ 
